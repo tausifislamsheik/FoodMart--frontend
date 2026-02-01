@@ -29,7 +29,22 @@ export default async function RecentMeals() {
       <div className="flex justify-between items-center mb-6">
         <h2 className="text-2xl font-bold">Recent Meals</h2>
         <Link href="/meals">
-          <Button>See All Meals</Button>
+          <Button className="inline-flex items-center gap-2 px-8 py-4 text-orange-500-foreground font-semibold rounded-sm hover:bg-text-orange-500 transition-all duration-300 shadow-lg shadow-primary/25 hover:shadow-6xl hover:shadow-orange-100 hover:-translate-y-0.5 bg-orange-500 text-white cursor-pointer">
+            See All Meals
+            <svg
+              className="w-5 h-5"
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+            >
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth={2}
+                d="M17 8l4 4m0 0l-4 4m4-4H3"
+              />
+            </svg>
+          </Button>
         </Link>
       </div>
 
