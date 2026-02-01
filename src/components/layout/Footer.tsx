@@ -1,6 +1,6 @@
 import { cn } from "@/lib/utils";
 
-import { Logo, LogoImage, LogoText } from "@/components/logo";
+import { Logo, LogoImage, LogoText } from "@/components/ui/logo";
 
 interface MenuItem {
   title: string;

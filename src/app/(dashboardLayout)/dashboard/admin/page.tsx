@@ -1,9 +1,15 @@
-import React from 'react'
+import AdminProfileClient from "@/components/dashboard/adminPage/AdminProfileClient";
+import { userService } from "@/services/user.service";
 
-const Admin = () => {
+const AdminOverview = async () => {
+  const { data } = await userService.getSession();
+  const user = data?.user;
+
   return (
-    <div>Admin</div>
-  )
-}
+    <div className="p-4">
+      <AdminProfileClient user={user} />
+    </div>
+  );
+};
 
-export default Admin
+export default AdminOverview;
