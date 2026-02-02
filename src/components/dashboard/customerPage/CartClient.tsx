@@ -15,7 +15,7 @@ import {
 } from "@/components/ui/dialog";
 import { Input } from "@/components/ui/input";
 import { mealService } from "@/services/meal.service";
-import { cartService } from "@/services/cart.service";
+import { cartService, UpdateCartItemPayload } from "@/services/cart.service";
 
 
 interface CartItem {
