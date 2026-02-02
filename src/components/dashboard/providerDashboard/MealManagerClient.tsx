@@ -74,7 +74,7 @@ const MealManagerClient = ({ userId }: Props) => {
     const fd = new FormData();
     fd.append("image", file);
     const res = await fetch(
-      `https://api.imgbb.com/1/upload?key=${process.env.IMGBB_API_KEY}`,
+      `https://api.imgbb.com/1/upload?key=${process.env.NEXT_PUBLIC_IMGBB_API_KEY}`,
       { method: "POST", body: fd },
     );
     const data = await res.json();
@@ -263,7 +263,7 @@ const MealManagerClient = ({ userId }: Props) => {
                 <SelectValue placeholder="Select category" />
               </SelectTrigger>
               <SelectContent>
-                {categories.map((cat) => (
+                {categories?.map((cat) => (
                   <SelectItem key={cat.id} value={cat.id!}>
                     {cat.name}
                   </SelectItem>

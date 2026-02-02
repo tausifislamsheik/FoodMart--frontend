@@ -1,0 +1,126 @@
+"use client";
+
+import { Button } from "@/components/ui/button";
+import {
+  Card,
+  CardContent,
+  CardDescription,
+  CardFooter,
+  CardHeader,
+  CardTitle,
+} from "@/components/ui/card";
+import { Field, FieldGroup, FieldLabel } from "@/components/ui/field";
+import { Input } from "@/components/ui/input";
+import { authClient } from "@/lib/auth-client";
+import { useForm } from "@tanstack/react-form";
+import { toast } from "sonner";
+
+export function LoginForm({ ...props }: React.ComponentProps<typeof Card>) {
+
+  const handleGoogleLogin = async () => {
+    const data = authClient.signIn.social({
+      provider: "google",
+      callbackURL: process.env.FRONTEND_URL!,
+    });
+  };
+
+  const form = useForm({
+    defaultValues: {
+      email: "",
+      password: "",
+    },
+    onSubmit: async ({ value }) => {
+      const toastId = toast.loading("Logging in");
+      try {
+        const { data, error } = await authClient.signIn.email(value);
+
+        if (error) {
+          toast.error(error.message, { id: toastId });
+          return;
+        }
+
+        toast.success("User Logged in Successfully", { id: toastId });
+
+        // Hard navigation to ensure cookies are readable by the client
+        window.location.href = "/";
+      } catch (err) {
+        toast.error("Something went wrong, please try again.", { id: toastId });
+      }
+    },
+  });
+
+  return (
+    <Card
+      {...props}
+      className="w-full rounded-lg shadow-lg border border-border bg-card text-card-foreground"
+    >
+      <CardHeader className="space-y-1">
+        <CardTitle className="text-2xl md:text-3xl">
+          Login to your account
+        </CardTitle>
+        <CardDescription className="text-sm md:text-base">
+          Enter your information below to login
+        </CardDescription>
+      </CardHeader>
+      <CardContent>
+        <form
+          id="login-form"
+          onSubmit={(e) => {
+            e.preventDefault();
+            form.handleSubmit();
+          }}
+        >
+          <FieldGroup>
+            <form.Field
+              name="email"
+              children={(field) => (
+                <Field>
+                  <FieldLabel htmlFor={field.name}>Email</FieldLabel>
+                  <Input
+                    type="email"
+                    id={field.name}
+                    name={field.name}
+                    value={field.state.value}
+                    onChange={(e) => field.handleChange(e.target.value)}
+                  />
+                </Field>
+              )}
+            />
+            <form.Field
+              name="password"
+              children={(field) => (
+                <Field>
+                  <FieldLabel htmlFor={field.name}>Password</FieldLabel>
+                  <Input
+                    type="password"
+                    id={field.name}
+                    name={field.name}
+                    value={field.state.value}
+                    onChange={(e) => field.handleChange(e.target.value)}
+                  />
+                </Field>
+              )}
+            />
+          </FieldGroup>
+        </form>
+      </CardContent>
+      <CardFooter className="flex flex-col gap-5 justify-end">
+        <Button
+          form="login-form"
+          type="submit"
+          className="w-full bg-orange-500 cursor-pointer"
+        >
+          Login
+        </Button>
+        <Button
+          onClick={handleGoogleLogin}
+          variant="outline"
+          type="button"
+          className="w-full cursor-pointer"
+        >
+          Continue with Google
+        </Button>
+      </CardFooter>
+    </Card>
+  );
+}

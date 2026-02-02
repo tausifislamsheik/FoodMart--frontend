@@ -26,7 +26,7 @@ const ProviderOverview = async () => {
         Welcome {user.name}!
       </h1>
       <p className="text-sm text-center text-muted-foreground mb-6">
-        Feedza {user.role}
+        FoodMart {user.role}
       </p>
 
       <ProviderProfileClient profile={myProfile || null} />

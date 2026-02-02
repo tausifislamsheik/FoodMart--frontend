@@ -19,7 +19,13 @@ const CategorySection = async () => {
   const { data: categories, error: catError } =
     await categoryService.getAllCategories();
   if (catError || !categories || categories.length === 0) {
-    return <div className="justify-center items-center text-center"><p className="text-center text-gray-500 text-2xl font-semibold border-2 inline mx-auto p-7 rounded-2xl">No Categories Found</p></div>;
+    return (
+      <div className="justify-center items-center text-center">
+        <p className="text-center text-gray-500 text-2xl font-semibold border-2 inline mx-auto p-7 rounded-2xl">
+          No Categories Found
+        </p>
+      </div>
+    );
   }
 
   const { data: meals, error: mealError } = await mealService.getAllMeals();
@@ -46,10 +52,34 @@ const CategorySection = async () => {
     .slice(0, 5);
 
   return (
-    <div className="max-w-7xl mx-auto px-4 py-12">
+    <div className="max-w-8xl mx-auto px-4 py-12">
       <h2 className="text-3xl font-bold text-center mb-8">
         Popular <span className="text-orange-500">Categories</span>
       </h2>
+
+      <div className="flex justify-end m-10">
+        <Link href="/meals" passHref>
+          <Button
+            size="sm"
+            className="inline-flex items-center gap-2 px-8 py-5 text-orange-500-foreground font-semibold rounded-sm hover:bg-text-orange-500 transition-all duration-300 shadow-lg shadow-primary/25 hover:shadow-6xl hover:shadow-orange-100 hover:-translate-y-0.5 bg-orange-500 text-white cursor-pointer outline"
+          >
+            See All Category Meals
+            <svg
+              className="w-5 h-5"
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+            >
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth={2}
+                d="M17 8l4 4m0 0l-4 4m4-4H3"
+              />
+            </svg>
+          </Button>
+        </Link>
+      </div>
 
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-6">
         {sortedCategories.map((cat: CategoryWithCount, idx: number) => {
@@ -76,14 +106,6 @@ const CategorySection = async () => {
             </div>
           );
         })}
-      </div>
-
-      <div className="flex justify-end mt-6">
-        <Link href="/meals" passHref>
-          <Button size="sm" className="cursor-pointer">
-            See All Category Meals
-          </Button>
-        </Link>
       </div>
     </div>
   );
