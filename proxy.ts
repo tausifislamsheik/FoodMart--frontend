@@ -1,6 +1,6 @@
 import { NextRequest, NextResponse } from "next/server";
 
-const AUTH_API = process.env.AUTH_URL;
+const AUTH_API = process.env.NEXT_PUBLIC_AUTH_URL;
 
 const DASHBOARD_MAP = {
   ADMIN: "/dashboard/admin",

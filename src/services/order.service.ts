@@ -1,4 +1,4 @@
-const API_URL = typeof window !== "undefined" ? "" : process.env.BACKEND_URL;
+const NEXT_PUBLIC_API_URL = typeof window !== "undefined" ? "" : process.env.NEXT_PUBLIC_BACKEND_URL;
 
 export interface OrderItemData {
   mealId: string;
@@ -18,7 +18,7 @@ export interface OrderData {
 export const orderService = {
   createOrder: async (payload: OrderData) => {
     try {
-      const res = await fetch(`${API_URL}/api/orders`, {
+      const res = await fetch(`${NEXT_PUBLIC_API_URL}/api/orders`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         credentials: "include",
@@ -35,7 +35,7 @@ export const orderService = {
 
   getAllOrders: async () => {
     try {
-      const res = await fetch(`${API_URL}/api/orders`, {
+      const res = await fetch(`${NEXT_PUBLIC_API_URL}/api/orders`, {
         cache: "no-store",
         credentials: "include",
       });
@@ -50,7 +50,7 @@ export const orderService = {
 
   getOrderById: async (id: string) => {
     try {
-      const res = await fetch(`${API_URL}/api/orders/${id}`, {
+      const res = await fetch(`${NEXT_PUBLIC_API_URL}/api/orders/${id}`, {
         cache: "no-store",
         credentials: "include",
       });
@@ -65,7 +65,7 @@ export const orderService = {
 
   updateOrderStatus: async (id: string, status: OrderData["status"]) => {
     try {
-      const res = await fetch(`${API_URL}/api/orders/${id}/status`, {
+      const res = await fetch(`${NEXT_PUBLIC_API_URL}/api/orders/${id}/status`, {
         method: "PATCH",
         headers: { "Content-Type": "application/json" },
         credentials: "include",
@@ -82,7 +82,7 @@ export const orderService = {
 
   deleteOrder: async (id: string) => {
     try {
-      const res = await fetch(`${API_URL}/api/orders/${id}`, {
+      const res = await fetch(`${NEXT_PUBLIC_API_URL}/api/orders/${id}`, {
         method: "DELETE",
         credentials: "include",
       });

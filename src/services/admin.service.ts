@@ -1,4 +1,4 @@
-const API_URL = process.env.BACKEND_URL;
+const NEXT_PUBLIC_API_URL = process.env.NEXT_PUBLIC_BACKEND_URL;
 
 export interface UserData {
   id?: string;
@@ -12,7 +12,7 @@ export interface UserData {
 export const adminService = {
   getAllUsers: async () => {
     try {
-      const res = await fetch(`${API_URL}/api/users`, {
+      const res = await fetch(`${NEXT_PUBLIC_API_URL}/api/users`, {
         cache: "no-store",
         credentials: "include",
       });
@@ -33,7 +33,7 @@ export const adminService = {
 
   getUserById: async (id: string) => {
     try {
-      const res = await fetch(`${API_URL}/api/users/${id}`, {
+      const res = await fetch(`${NEXT_PUBLIC_API_URL}/api/users/${id}`, {
         credentials: "include",
       });
       const data = await res.json();
@@ -53,7 +53,7 @@ export const adminService = {
 
   updateUser: async (id: string, payload: Partial<UserData>) => {
     try {
-      const res = await fetch(`${API_URL}/api/users/${id}`, {
+      const res = await fetch(`${NEXT_PUBLIC_API_URL}/api/users/${id}`, {
         method: "PATCH",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(payload),
@@ -76,7 +76,7 @@ export const adminService = {
 
   deleteUser: async (id: string) => {
     try {
-      const res = await fetch(`${API_URL}/api/users/${id}`, {
+      const res = await fetch(`${NEXT_PUBLIC_API_URL}/api/users/${id}`, {
         method: "DELETE",
         credentials: "include",
       });
