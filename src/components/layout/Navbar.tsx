@@ -67,7 +67,7 @@
 //       title: "Meals",
 //       url: "/meals",
 //     },
-    
+
 //     {
 //       title: "Providers",
 //       url: "/providers",
@@ -202,24 +202,6 @@
 
 // export { Navbar };
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 "use client";
 
 import { Button } from "@/components/ui/button";
@@ -235,6 +217,7 @@ import Link from "next/link";
 import { usePathname, useRouter } from "next/navigation";
 import { useEffect, useState } from "react";
 import { toast } from "sonner";
+import { ModeToggle } from "./MoodToggle";
 
 interface User {
   id: string;
@@ -313,33 +296,39 @@ const Navbar = () => {
           {navItems.map((item) => {
             const isActive = pathname === item.href;
             return (
-              <Link
-                key={item.name}
-                href={item.href}
-                className={`transition ${
-                  isActive
-                    ? "text-primary font-semibold underline underline-offset-4"
-                    : "hover:text-primary hover:underline hover:underline-offset-4"
-                }`}
-              >
-                {item.name}
-              </Link>
+                <Link
+                  key={item.name}
+                  href={item.href}
+                  className={`transition ${
+                    isActive
+                      ? "text-primary font-semibold underline underline-offset-4"
+                      : "hover:text-primary hover:underline hover:underline-offset-4"
+                  }`}
+                >
+                  {item.name}
+                </Link>
             );
           })}
-
+           <ModeToggle />
           <div className="flex gap-3">
             {userInfo ? (
-              <Button
-                variant="default"
-                onClick={handleSignOut}
-                disabled={loading}
-                className="cursor-pointer"
-              >
-                {loading ? "Signing Out..." : "Sign Out"}
-              </Button>
+              <>
+                <Button
+                  variant="default"
+                  onClick={handleSignOut}
+                  disabled={loading}
+                  className="cursor-pointer"
+                >
+                  {loading ? "Signing Out..." : "Sign Out"}
+                </Button>
+              </>
             ) : (
               <>
-                <Button className="cursor-pointer text-orange-500" variant="outline" asChild>
+                <Button
+                  className="cursor-pointer text-orange-500"
+                  variant="outline"
+                  asChild
+                >
                   <Link href="/login">Sign In</Link>
                 </Button>
                 <Button className="cursor-pointer bg-orange-500" asChild>
@@ -382,6 +371,7 @@ const Navbar = () => {
                       >
                         {item.name}
                       </Link>
+                      <ModeToggle />
                     </SheetTrigger>
                   );
                 })}
@@ -410,7 +400,10 @@ const Navbar = () => {
                     </SheetTrigger>
 
                     <SheetTrigger asChild>
-                      <Button className="w-full cursor-pointer bg-orange-500" asChild>
+                      <Button
+                        className="w-full cursor-pointer bg-orange-500"
+                        asChild
+                      >
                         <Link href="/register">Sign Up</Link>
                       </Button>
                     </SheetTrigger>
@@ -423,7 +416,6 @@ const Navbar = () => {
       </nav>
     </header>
   );
-}
-
+};
 
 export default Navbar;
