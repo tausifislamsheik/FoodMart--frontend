@@ -1,134 +1,76 @@
-// import { useState } from "react";
-// import { useForm } from "react-hook-form";
-// import { zodResolver } from "@hookform/resolvers/zod";
-// import { z } from "zod";
-// import { Mail, Phone, MapPin, Clock, Send } from "lucide-react";
-// import Header from "@/components/layout/Header";
-import { Button } from "@/components/ui/button";
-// import { Input } from "@/components/ui/input";
-// import { Textarea } from "@/components/ui/textarea";
-// import { Card, CardContent } from "@/components/ui/card";
-// import {
-//   Form,
-//   FormControl,
-//   FormField,
-//   FormItem,
-//   FormLabel,
-//   FormMessage,
-// } from "@/components/ui/form";
-// import { useToast } from "@/hooks/use-toast";
-
-// const contactSchema = z.object({
-//   name: z
-//     .string()
-//     .trim()
-//     .min(1, { message: "Name is required" })
-//     .max(100, { message: "Name must be less than 100 characters" }),
-//   email: z
-//     .string()
-//     .trim()
-//     .email({ message: "Please enter a valid email address" })
-//     .max(255, { message: "Email must be less than 255 characters" }),
-//   subject: z
-//     .string()
-//     .trim()
-//     .min(1, { message: "Subject is required" })
-//     .max(200, { message: "Subject must be less than 200 characters" }),
-//   message: z
-//     .string()
-//     .trim()
-//     .min(10, { message: "Message must be at least 10 characters" })
-//     .max(1000, { message: "Message must be less than 1000 characters" }),
-// });
-
-// type ContactFormValues = z.infer<typeof contactSchema>;
-
-// const contactInfo = [
-//   {
-//     icon: Mail,
-//     title: "Email Us",
-//     details: "support@foodmart.com",
-//     subDetails: "We reply within 24 hours",
-//   },
-//   {
-//     icon: Phone,
-//     title: "Call Us",
-//     details: "+1 (555) 123-4567",
-//     subDetails: "Mon-Fri, 9am-6pm EST",
-//   },
-//   {
-//     icon: MapPin,
-//     title: "Visit Us",
-//     details: "123 Food Street",
-//     subDetails: "New York, NY 10001",
-//   },
-//   {
-//     icon: Clock,
-//     title: "Business Hours",
-//     details: "Mon - Fri: 9am - 6pm",
-//     subDetails: "Sat - Sun: 10am - 4pm",
-//   },
-// ];
+import ContactForm from "@/components/contactPage/ContactForm";
+import ContactInfo from "@/components/contactPage/ContactInfo";
+import { MessageSquare } from "lucide-react";
 
 const Contact = () => {
-  // const [isSubmitting, setIsSubmitting] = useState(false);
-  // const { toast } = useToast();
-
-  // const form = useForm<ContactFormValues>({
-  //   resolver: zodResolver(contactSchema),
-  //   defaultValues: {
-  //     name: "",
-  //     email: "",
-  //     subject: "",
-  //     message: "",
-  //   },
-  // });
-
-  // const onSubmit = async (data: ContactFormValues) => {
-  //   setIsSubmitting(true);
-    
-  //   // Simulate API call
-  //   await new Promise((resolve) => setTimeout(resolve, 1000));
-    
-  //   toast({
-  //     title: "Message Sent!",
-  //     description: "We'll get back to you as soon as possible.",
-  //   });
-    
-  //   form.reset();
-  //   setIsSubmitting(false);
-  // };
-
   return (
     <div className="min-h-screen flex flex-col bg-background">
       <main className="flex-1">
         {/* Hero Section */}
-        <section className="py-16 md:py-24 bg-gradient-to-b from-primary/10 to-background">
+        <section className="py-16 md:py-24 bg-gradient-to-b from-orange-50 to-background">
           <div className="container text-center">
-            <h1 className="text-4xl md:text-5xl font-bold text-foreground mb-4">
-              Get in <span className="text-primary">Touch</span>
+            <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-orange-50 text-orange-500 text-sm font-medium mb-6 animate-fade-in">
+              <MessageSquare className="w-4 h-4" />
+              Get in Touch
+            </div>
+            <h1 className="text-4xl md:text-5xl font-bold text-foreground mb-4 animate-fade-in" style={{ animationDelay: "100ms" }}>
+              Contact <span className="text-orange-500">Us</span>
             </h1>
-            <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-              Have questions, feedback, or need assistance? We're here to help.
-              Reach out to us and we'll respond as soon as possible.
+            <p className="text-lg text-muted-foreground max-w-2xl mx-auto animate-fade-in" style={{ animationDelay: "200ms" }}>
+              Have questions or feedback? We'd love to hear from you. Send us a message and we'll respond as soon as possible.
             </p>
           </div>
         </section>
 
-        
-        {/* FAQ CTA Section */}
-        <section className="py-16 bg-primary/5">
-          <div className="container text-center">
-            <h2 className="text-2xl md:text-3xl font-bold text-foreground mb-4">
-              Have More Questions?
-            </h2>
-            <p className="text-muted-foreground mb-6 max-w-xl mx-auto">
-              Check out our FAQ section for quick answers to common questions
-              about orders, delivery, and more.
-            </p>
-            <Button variant="outline" size="lg">
-              View FAQs
-            </Button>
+        {/* Contact Content */}
+        <section className="py-16 md:py-20 px-10 md:px-20">
+          <div className="container">
+            <div className="grid lg:grid-cols-2 gap-12 lg:gap-16">
+              {/* Contact Form */}
+              <div className="order-2 lg:order-1">
+                <div className="bg-card rounded-2xl border border-border p-8 md:p-10 shadow-card">
+                  <h2 className="text-2xl font-bold text-foreground mb-2">
+                    Send us a Message
+                  </h2>
+                  <p className="text-muted-foreground mb-8">
+                    Fill out the form below and we'll get back to you shortly.
+                  </p>
+                  <ContactForm />
+                </div>
+              </div>
+
+              {/* Contact Information */}
+              <div className="order-1 lg:order-2">
+                <h2 className="text-2xl font-bold text-foreground mb-2">
+                  Contact Information
+                </h2>
+                <p className="text-muted-foreground mb-8">
+                  Reach out to us through any of these channels.
+                </p>
+                <ContactInfo />
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* Map Section */}
+        <section className="py-16 bg-muted/30">
+          <div className="container">
+            <div className="text-center mb-10">
+              <h2 className="text-2xl font-bold text-foreground mb-2">
+                Find Us on the Map
+              </h2>
+              <p className="text-muted-foreground">
+                Visit our office or use the map for directions.
+              </p>
+            </div>
+            <div className="rounded-2xl overflow-hidden border border-border shadow-card h-[400px] bg-muted flex items-center justify-center">
+              <div className="text-center text-muted-foreground">
+                <MapPin className="w-12 h-12 mx-auto mb-4 text-orange-500" />
+                <p className="font-medium">Map Integration</p>
+                <p className="text-sm">123 Food Street, New York, NY 10001</p>
+              </div>
+            </div>
           </div>
         </section>
       </main>
@@ -136,5 +78,11 @@ const Contact = () => {
   );
 };
 
-export default Contact;
+const MapPin = ({ className }: { className?: string }) => (
+  <svg className={className} xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+    <path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/>
+    <circle cx="12" cy="10" r="3"/>
+  </svg>
+);
 
+export default Contact;

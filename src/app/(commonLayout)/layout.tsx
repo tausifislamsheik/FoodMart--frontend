@@ -13,10 +13,12 @@ const CommonLayout = ({ children }: { children: React.ReactNode }) => {
         enableSystem
         disableTransitionOnChange
       >
-        <Navbar />
-        <div className="min-h-screen">{children}</div>
-        <Footer />
-        <Toaster richColors />
+        <div>
+          <Navbar />
+          <div className="min-h-screen">{children}</div>
+          <Footer />
+          <Toaster richColors />
+        </div>
       </ThemeProvider>
     </div>
   );
