@@ -22,11 +22,11 @@ const ProviderOverview = async () => {
 
   return (
     <div className="container mx-auto px-4 py-6">
-      <h1 className="text-2xl font-semibold mb-1 text-center">
-        Welcome {user.name}!
+      <h1 className="text-2xl md:text-3xl font-semibold mb-1 text-center">
+        Welcome <span className="text-orange-600 font-bold">{user.name}!</span>
       </h1>
-      <p className="text-sm text-center text-muted-foreground mb-6">
-        FoodMart {user.role}
+      <p className="text-sm text-center text-muted-foreground mb-6 font-semibold">
+         {user.role}
       </p>
 
       <ProviderProfileClient profile={myProfile || null} />

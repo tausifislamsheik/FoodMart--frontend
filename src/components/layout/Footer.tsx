@@ -14,15 +14,17 @@ const Footer = () => {
         <div className="grid grid-cols-2 md:grid-cols-5 gap-8">
           <div className="col-span-2 md:col-span-1">
             <Link href="/" className="flex items-center gap-2 mb-4">
-              <span className="text-2xl font-bold text-foreground">
-                Food<span className="text-orange-500">Mart</span>
+              <span className="text-2xl text-foreground">
+                <i>
+                  Food<span className="text-orange-500 font-bold">Mart</span>
+                </i>
               </span>
             </Link>
             <p className="text-sm text-muted-foreground">
               Delicious meals delivered fast.
             </p>
           </div>
-          
+
           {Object.entries(footerLinks).map(([category, links]) => (
             <div key={category}>
               <h4 className="font-semibold text-foreground mb-4">{category}</h4>
@@ -41,16 +43,22 @@ const Footer = () => {
             </div>
           ))}
         </div>
-        
+
         <div className="mt-12 pt-8 border-t border-border flex flex-col md:flex-row justify-between items-center gap-4">
           <p className="text-sm text-muted-foreground">
             © 2024 FoodMart. All rights reserved.
           </p>
           <div className="flex gap-6">
-            <Link href="/" className="text-sm text-muted-foreground hover:text-primary transition-colors">
+            <Link
+              href="/"
+              className="text-sm text-muted-foreground hover:text-primary transition-colors"
+            >
               Terms and Conditions
             </Link>
-            <Link href="/" className="text-sm text-muted-foreground hover:text-primary transition-colors">
+            <Link
+              href="/"
+              className="text-sm text-muted-foreground hover:text-primary transition-colors"
+            >
               Privacy Policy
             </Link>
           </div>

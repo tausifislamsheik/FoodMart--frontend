@@ -35,7 +35,12 @@ export default function WhyChooseUs() {
         {/* Section Header */}
         <div className="text-center mb-14">
           <h2 className="text-3xl md:text-4xl font-bold mb-4">
-            Why Choose <span className="text-orange-500">FoodMart</span>?
+            Why Choose <span className="">
+              <i>
+                <span className="font-normal">Food</span>
+                <span className="text-orange-500">Mart</span>
+              </i>
+              </span>?
           </h2>
           <p className="text-muted-foreground max-w-2xl mx-auto">
             We make food ordering simple, secure, and convenient for everyone.

@@ -56,8 +56,10 @@ export default function Sidebar({ role }: { role: Role }) {
             side="left"
             className="w-64 flex flex-col h-full overflow-y-auto"
           >
-            <SheetTitle className="mt-3 pl-3.5 text-xl font-bold">
-              FoodMart
+            <SheetTitle className="mt-3 pl-3.5 text-xl">
+              <i>
+                Food<span className="text-orange-500 font-bold">Mart</span>
+              </i>
             </SheetTitle>
             <SidebarContent
               links={links}
@@ -88,8 +90,9 @@ function SidebarContent({
 
   return (
     <>
-      <h2 className="hidden md:flex ml-3 text-xl font-bold mb-3">Dashboard</h2>
-      <ul className="space-y-3">
+      <h2 className="hidden md:flex ml-3 text-2xl font-bold mb-3">Dashboard</h2>
+      <hr className="border" />
+      <ul className="space-y-3 mt-5">
         {links?.map((link) => {
           const isActive = pathname === link.href;
           return (
@@ -97,8 +100,8 @@ function SidebarContent({
               <Link
                 href={link.href}
                 onClick={onLinkClick}
-                className={`block font-medium rounded-md px-3 py-2 transition hover:bg-gray-100 ${
-                  isActive ? "bg-gray-200 font-semibold" : ""
+                className={`block font-medium rounded-md px-3 py-2 transition hover:bg-orange-100 ${
+                  isActive ? "bg-orange-500 text-white font-semibold" : ""
                 }`}
               >
                 {link.label}

@@ -10,8 +10,10 @@ export default function Home() {
     <div className="max-w-8xl mx-auto">
       <HomeBanner />
       <HowItWorks />
-      <RecentMeals />
-      <PopularMealsProviderSection />
+      <div className="max-w-7xl mx-auto">
+        <RecentMeals />
+        <PopularMealsProviderSection />
+      </div>
       <CategoryCards />
       <WhyChooseUs />
     </div>

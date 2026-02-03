@@ -83,8 +83,10 @@ const Navbar = () => {
     <header className="w-full border-b bg-background text-foreground">
       <nav className="max-w-350 mx-auto flex h-16 items-center justify-between px-4">
         {/* Logo */}
-        <Link href="/" className="text-3xl font-bold">
-          Food<span className="text-orange-500">Mart</span>
+        <Link href="/" className="text-3xl">
+          <i>
+            Food<span className="text-orange-500 font-bold">Mart</span>
+          </i>
         </Link>
 
         {/* Desktop menu */}
