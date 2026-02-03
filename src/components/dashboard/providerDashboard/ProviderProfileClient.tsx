@@ -174,7 +174,7 @@ const ProviderProfileClient = ({ profile }: Props) => {
           </div>
 
           <Button
-            className="w-full mt-4 cursor-pointer"
+            className="w-full mt-4 bg-orange-500 hover:bg-orange-600 cursor-pointer"
             onClick={handleSubmit}
             disabled={loading}
           >

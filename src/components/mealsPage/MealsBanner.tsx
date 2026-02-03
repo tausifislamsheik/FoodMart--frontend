@@ -39,9 +39,11 @@ const MealsBanner = () => {
                 Explore Menu
               </button>
             </Link>
-            <button className="rounded-lg border-2 border-orange-200 bg-card/80 px-8 py-3 font-semibold backdrop-blur-sm transition-all duration-300 hover:border-primary hover:text-primary text-orange-500 cursor-pointer">
-              Order Now
-            </button>
+            <Link href={"/meals"}>
+              <button className="rounded-lg border-2 border-orange-200 bg-card/80 px-8 py-3 font-semibold backdrop-blur-sm transition-all duration-300 hover:border-primary hover:text-primary text-orange-500 cursor-pointer">
+                Order Now
+              </button>
+            </Link>
           </div>
         </motion.div>
       </div>

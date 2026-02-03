@@ -142,7 +142,7 @@ const MealManagerClient = ({ userId }: Props) => {
             setImageFile(null);
             setDialogOpen(true);
           }}
-          className="cursor-pointer"
+          className="cursor-pointer bg-orange-500 hover:bg-orange-600"
         >
           + Add Meal
         </Button>

@@ -10,8 +10,11 @@ export const userService = {
         headers: {
           Cookie: cookieStore.toString(),
         },
+        credentials: "include",
         cache: "no-store",
       });
+
+      if (!res.ok) return { data: null, error: "Unauthorized" };
 
       const session = await res.json();
 

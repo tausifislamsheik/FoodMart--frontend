@@ -113,7 +113,7 @@ const Navbar = () => {
                   variant="default"
                   onClick={handleSignOut}
                   disabled={loading}
-                  className="cursor-pointer"
+                  className="cursor-pointer bg-orange-500 hover:bg-orange-600"
                 >
                   {loading ? "Signing Out..." : "Sign Out"}
                 </Button>
@@ -176,7 +176,7 @@ const Navbar = () => {
                 {userInfo ? (
                   <Button
                     variant="default"
-                    className="w-full cursor-pointer"
+                    className="w-full cursor-pointer bg-orange-500 hover:bg-orange-600"
                     onClick={handleSignOut}
                     disabled={loading}
                   >

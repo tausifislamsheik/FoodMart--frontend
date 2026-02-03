@@ -1,5 +1,6 @@
 import { Button } from "@/components/ui/button";
 import { ArrowRight, Clock, Star, MapPin } from "lucide-react";
+import Link from "next/link";
 
 const HomeBanner = () => {
   return (
@@ -20,7 +21,9 @@ const HomeBanner = () => {
                 <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-orange-500 opacity-75"></span>
                 <span className="relative inline-flex rounded-full h-2 w-2 bg-orange-500"></span>
               </span>
-              <span className="text-sm font-medium text-orange-500">Now delivering in your area</span>
+              <span className="text-sm font-medium text-orange-500">
+                Now delivering in your area
+              </span>
             </div>
 
             {/* Headline */}
@@ -31,19 +34,31 @@ const HomeBanner = () => {
                 <span className="text-orange-500">Delivered Fast</span>
               </h1>
               <p className="text-lg md:text-xl text-muted-foreground max-w-lg">
-                From local favorites to gourmet cuisines — discover restaurants near you and get your cravings satisfied in minutes.
+                From local favorites to gourmet cuisines — discover restaurants
+                near you and get your cravings satisfied in minutes.
               </p>
             </div>
 
             {/* CTA Buttons */}
             <div className="flex flex-col sm:flex-row gap-4">
-              <Button size="lg" className="group text-base px-8 py-6 shadow-lg shadow-primary/25 hover:shadow-xl hover:shadow-primary/30 bg-orange-500 cursor-pointer">
-                Order Now
-                <ArrowRight className="ml-2 h-5 w-5 group-hover:translate-x-1 transition-transform" />
-              </Button>
-              <Button variant="outline" size="lg" className="text-base px-8 py-6 hover:bg-orange-500 hover:text-white border border-orange-200 text-orange-500 cursor-pointer">
-                Explore Menu
-              </Button>
+              <Link href={"/meals"}>
+                <Button
+                  size="lg"
+                  className="group text-base px-8 py-6 shadow-lg shadow-primary/25 hover:shadow-xl hover:shadow-primary/30 bg-orange-500 hover:bg-orange-600 cursor-pointer"
+                >
+                  Order Now
+                  <ArrowRight className="ml-2 h-5 w-5 group-hover:translate-x-1 transition-transform" />
+                </Button>
+              </Link>
+              <Link href={"/meals"}>
+                <Button
+                  variant="outline"
+                  size="lg"
+                  className="text-base px-8 py-6 hover:bg-orange-500 hover:text-white border border-orange-200 text-orange-500 cursor-pointer"
+                >
+                  Explore Menu
+                </Button>
+              </Link>
             </div>
 
             {/* Trust Indicators */}
@@ -73,7 +88,7 @@ const HomeBanner = () => {
           <div className="relative hidden lg:block">
             <div className="relative">
               {/* Main Image Container */}
-              <div className="relative w-full aspect-square rounded-3xl bg-gradient-to-br from-secondary to-secondary/50 border border-border/50 shadow-2xl overflow-hidden">
+              <div className="relative w-full aspect-square rounded-3xl  overflow-hidden">
                 {/* Decorative circles */}
                 <div className="absolute inset-0 flex items-center justify-center">
                   <div className="w-3/4 h-3/4 rounded-full border-2 border-dashed border-orange-300 animate-[spin_20s_linear_infinite]" />
@@ -81,39 +96,47 @@ const HomeBanner = () => {
                 <div className="absolute inset-0 flex items-center justify-center">
                   <div className="w-1/2 h-1/2 rounded-full border-2 border-dashed border-orange-300 animate-[spin_15s_linear_infinite_reverse]" />
                 </div>
-                
+
                 {/* Center content */}
                 <div className="absolute inset-0 flex items-center justify-center">
                   <div className="text-center space-y-2 p-8">
                     <div className="w-24 h-24 mx-auto bg-orange-100 rounded-full flex items-center justify-center">
                       <span className="text-5xl">🍔</span>
                     </div>
-                    <p className="text-muted-foreground text-sm font-medium">Your favorite food awaits</p>
+                    <p className="text-muted-foreground text-sm font-medium">
+                      Your favorite food awaits
+                    </p>
                   </div>
                 </div>
               </div>
 
               {/* Floating Cards */}
-              <div className="absolute -top-4 -right-4 bg-card rounded-2xl p-4 shadow-lg border border-border/50 animate-bounce" style={{ animationDuration: '3s' }}>
-                <div className="flex items-center gap-3">
-                  <span className="text-2xl">🍕</span>
-                  <div>
-                    <p className="font-semibold text-card-foreground text-sm">Pizza Express</p>
-                    <p className="text-xs text-muted-foreground">15 min away</p>
-                  </div>
+
+              <div
+                className="absolute top-8 right-8 bg-card shadow-lg rounded-xl shadow-card border-border/50 p-4 flex items-center gap-3 animate-bounce border-2"
+                style={{ animationDuration: "3s" }}
+              >
+                <span className="text-2xl">🍕</span>
+                <div>
+                  <p className="font-semibold text-foreground text-sm">
+                    Pizza Express
+                  </p>
+                  <p className="text-xs text-muted-foreground">15 min away</p>
                 </div>
               </div>
 
-              <div className="absolute -bottom-4 -left-4 bg-card rounded-2xl p-4 shadow-lg border border-border/50 animate-bounce" style={{ animationDuration: '4s', animationDelay: '1s' }}>
-                <div className="flex items-center gap-3">
-                  <span className="text-2xl">🥗</span>
-                  <div>
-                    <p className="font-semibold text-card-foreground text-sm">Fresh Salads</p>
-                    <div className="flex items-center gap-1">
-                      <Star className="h-3 w-3 fill-orange-500 text-orange-500" />
-                      <span className="text-xs text-muted-foreground">4.8</span>
-                    </div>
-                  </div>
+              <div
+                className="absolute bottom-20 left-4 bg-card rounded-xl shadow-card p-4 flex items-center gap-3 animate-bounce border-2"
+                style={{ animationDuration: "4s" }}
+              >
+                <span className="text-2xl">🥗</span>
+                <div>
+                  <p className="font-semibold text-foreground text-sm">
+                    Fresh Salads
+                  </p>
+                  <p className="text-xs text-muted-foreground flex items-center gap-1">
+                    <Star className="w-3 h-3 fill-primary text-primary" /> 4.8
+                  </p>
                 </div>
               </div>
             </div>
