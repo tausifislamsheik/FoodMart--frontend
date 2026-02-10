@@ -176,7 +176,7 @@ const CartClient = ({ userId }: Props) => {
                     setIsUpdateOpen(true);
                   }}
                   disabled={loadingUpdateId === item.id}
-                  className="cursor-pointer"
+                  className="cursor-pointer bg-green-700 hover:bg-green-600"
                 >
                   {loadingUpdateId === item.id ? "Updating..." : "Update"}
                 </Button>
@@ -193,7 +193,7 @@ const CartClient = ({ userId }: Props) => {
                     onChange={(e) => setNewQuantity(Number(e.target.value))}
                   />
                   <DialogFooter>
-                    <Button onClick={handleUpdate} className="cursor-pointer">
+                    <Button onClick={handleUpdate} className="cursor-pointer bg-green-700 hover:bg-green-600">
                       {loadingUpdateId === item.id ? "Updating..." : "Save"}
                     </Button>
                   </DialogFooter>
@@ -254,7 +254,7 @@ const CartClient = ({ userId }: Props) => {
                     setIsOrderOpen(true);
                   }}
                   disabled={loadingOrderId === item.id}
-                  className="cursor-pointer"
+                  className="cursor-pointer text-white hover:text-white bg-orange-500 hover:bg-orange-600"
                 >
                   {loadingOrderId === item.id ? "Ordering..." : "Order"}
                 </Button>
@@ -274,7 +274,7 @@ const CartClient = ({ userId }: Props) => {
                   <DialogFooter>
                     <Button
                       onClick={handleOrder}
-                      className="cursor-pointer"
+                      className="cursor-pointer bg-orange-500 hover:bg-orange-600"
                       disabled={!orderAddress || loadingOrderId === item.id}
                     >
                       {loadingOrderId === item.id

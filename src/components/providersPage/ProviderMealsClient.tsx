@@ -54,14 +54,14 @@ export default function ProviderMealsClient({
                   {meal.name.charAt(0)}
                 </div>
               )}
-              <CardContent className="space-y-1">
-                <CardTitle>{meal.name}</CardTitle>
+              <CardContent className="space-y-3">
+                <CardTitle className="text-2xl font-bold">{meal.name}</CardTitle>
                 <CardDescription className="text-gray-600 text-sm">
                   {meal.description}
                 </CardDescription>
-                <p className="font-semibold">${meal.price.toFixed(2)}</p>
+                <p className="font-semibold text-orange-600"><span className="text-xl mr-1">৳</span>{meal.price.toFixed(2)}</p>
                 <Link href={`/meals/${meal.id}`}>
-                  <Button className="w-full flex items-center justify-center space-x-2 cursor-pointer">
+                  <Button className="w-full flex items-center justify-center space-x-2 cursor-pointer bg-orange-500 hover:bg-orange-600">
                     <ShoppingCart size={18} />
                     <span>View Details</span>
                   </Button>

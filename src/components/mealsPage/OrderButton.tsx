@@ -67,7 +67,7 @@ const OrderButton: React.FC<OrderButtonProps> = ({
   return (
     <Dialog open={open} onOpenChange={setOpen}>
       <DialogTrigger asChild>
-        <Button className="mt-4 w-full py-3 text-lg font-medium bg-orange-600 hover:bg-orange-700 text-white rounded-xl shadow-md cursor-pointer">
+        <Button className="mt-4 w-full py-3 text-lg font-medium bg-orange-600 hover:bg-orange-700 text-white rounded-sm shadow-md cursor-pointer">
           {loading ? "Ordering..." : "Order Now"}
         </Button>
       </DialogTrigger>

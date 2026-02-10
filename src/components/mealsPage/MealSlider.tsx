@@ -60,7 +60,7 @@ const MealSlider = ({ title, meals }: MealSliderProps) => {
           size="sm"
           onClick={prev}
           disabled={startIndex === 0}
-          className="hidden md:block cursor-pointer"
+          className="hidden md:block bg-orange-500 hover:bg-orange-600 cursor-pointer"
         >
           {"<"}
         </Button>
@@ -89,7 +89,7 @@ const MealSlider = ({ title, meals }: MealSliderProps) => {
                 <p className="font-semibold text-orange-600">৳ {meal.price}</p>
               </CardContent>
               <CardFooter>
-                <Button asChild className="w-full" disabled={!meal.isAvailable}>
+                <Button asChild className="w-full bg-orange-500 hover:bg-orange-600" disabled={!meal.isAvailable}>
                   <Link href={`/meals/${meal.id}`}>Order Now</Link>
                 </Button>
               </CardFooter>
@@ -102,7 +102,7 @@ const MealSlider = ({ title, meals }: MealSliderProps) => {
           size="sm"
           onClick={next}
           disabled={startIndex + ITEMS_PER_SLIDE >= meals.length}
-          className="hidden md:block cursor-pointer"
+          className="hidden md:block cursor-pointer bg-orange-500 hover:bg-orange-600"
         >
           {">"}
         </Button>
@@ -113,7 +113,7 @@ const MealSlider = ({ title, meals }: MealSliderProps) => {
             size="sm"
             onClick={prev}
             disabled={startIndex === 0}
-            className="cursor-pointer"
+            className="cursor-pointer bg-orange-500 hover:bg-orange-600"
           >
             {"<"}
           </Button>
@@ -121,7 +121,7 @@ const MealSlider = ({ title, meals }: MealSliderProps) => {
             size="sm"
             onClick={next}
             disabled={startIndex + ITEMS_PER_SLIDE >= meals.length}
-            className="cursor-pointer"
+            className="cursor-pointer bg-orange-500 hover:bg-orange-600"
           >
             {">"}
           </Button>

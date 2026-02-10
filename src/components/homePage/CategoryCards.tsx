@@ -52,12 +52,12 @@ const CategorySection = async () => {
     .slice(0, 5);
 
   return (
-    <div className="max-w-8xl mx-auto px-4 py-12">
+    <div className="max-w-7xl mx-auto px-4 py-12">
       <h2 className="text-3xl font-bold text-center mb-8">
         Popular <span className="text-orange-500">Categories</span>
       </h2>
 
-      <div className="flex justify-end m-10">
+      <div className="flex justify-end my-10">
         <Link href="/meals" passHref>
           <Button
             size="sm"

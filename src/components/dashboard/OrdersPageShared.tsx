@@ -98,7 +98,7 @@ const OrdersPageShared = () => {
 
   const badgeStyle = (status: OrderStatus) =>
     ({
-      PLACED: "bg-gray-200 text-gray-800",
+      PLACED: "bg-gray-50 text-orange-500",
       PREPARING: "bg-yellow-400 text-black",
       READY: "bg-blue-500 text-white",
       DELIVERED: "bg-green-600 text-white",

@@ -1,4 +1,4 @@
-const NEXT_PUBLIC_API_URL = process.env.NEXT_PUBLIC_BACKEND_URL!;
+const BACKEND_URL = process.env.BACKEND_URL!;
 
 export interface MealData {
   id?: string;
@@ -12,7 +12,7 @@ export interface MealData {
 
 export const mealService = {
   getAllMeals: async () => {
-    const res = await fetch(`${NEXT_PUBLIC_API_URL}/api/meals`, {
+    const res = await fetch(` /api/meals`, {
       cache: "no-store",
       credentials: "include",
     });
@@ -20,7 +20,7 @@ export const mealService = {
   },
 
   getMealById: async (id: string) => {
-    const res = await fetch(`${NEXT_PUBLIC_API_URL}/api/meals/${id}`, {
+    const res = await fetch(` /api/meals/${id}`, {
       cache: "no-store",
       credentials: "include",
     });
@@ -28,7 +28,7 @@ export const mealService = {
   },
 
   createMeal: async (payload: MealData) => {
-    const res = await fetch(`${NEXT_PUBLIC_API_URL}/api/meals`, {
+    const res = await fetch(` /api/meals`, {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(payload),
@@ -38,7 +38,7 @@ export const mealService = {
   },
 
   updateMeal: async (id: string, payload: Partial<MealData>) => {
-    const res = await fetch(`${NEXT_PUBLIC_API_URL}/api/meals/${id}`, {
+    const res = await fetch(` /api/meals/${id}`, {
       method: "PUT",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(payload),
@@ -48,7 +48,7 @@ export const mealService = {
   },
 
   deleteMeal: async (id: string) => {
-    const res = await fetch(`${NEXT_PUBLIC_API_URL}/api/meals/${id}`, {
+    const res = await fetch(` /api/meals/${id}`, {
       method: "DELETE",
       credentials: "include",
     });

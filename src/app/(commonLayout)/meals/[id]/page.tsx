@@ -41,7 +41,7 @@ const MealsDetails = async ({
   );
 
   return (
-    <div className="space-y-10 container mx-auto px-4 mb-10">
+    <div className="space-y-10 container mx-auto my-10 px-4 mb-10">
       <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
         <div className="relative w-full aspect-video overflow-hidden rounded-2xl shadow-lg">
           <Image
@@ -53,8 +53,8 @@ const MealsDetails = async ({
           />
         </div>
 
-        <div className="flex flex-col justify-center space-y-4">
-          <h1 className="text-4xl font-extrabold text-gray-900">{meal.name}</h1>
+        <div className="flex flex-col justify-center space-y-1">
+          <h1 className="text-2xl md:text-4xl font-extrabold text-gray-900">{meal.name}</h1>
           <p className="text-2xl font-semibold text-orange-600">
             ৳ {meal.price}
           </p>
@@ -62,7 +62,7 @@ const MealsDetails = async ({
             {meal.description}
           </p>
 
-          <div className="mt-2 p-5 bg-gray-50 rounded-2xl shadow-inner space-y-3">
+          <div className="mt-2 p-5 bg-gray-50 rounded-lg shadow-inner space-y-3">
             <h2 className="text-xl font-bold text-gray-800">Provider Info</h2>
 
             <div className="flex items-center gap-4">

@@ -18,14 +18,14 @@ export default function Pagination({
       <Button
         onClick={() => onPageChange(1)}
         disabled={currentPage === 1}
-        className="cursor-pointer"
+        className="cursor-pointer bg-orange-500 hover:bg-orange-600"
       >
         {"<<"}
       </Button>
       <Button
         onClick={() => onPageChange(currentPage - 1)}
         disabled={currentPage === 1}
-        className="cursor-pointer"
+        className="cursor-pointer bg-orange-500 hover:bg-orange-600"
       >
         {"<"}
       </Button>
@@ -35,14 +35,14 @@ export default function Pagination({
       <Button
         onClick={() => onPageChange(currentPage + 1)}
         disabled={currentPage === totalPages}
-        className="cursor-pointer"
+        className="cursor-pointer bg-orange-500 hover:bg-orange-600"
       >
         {">"}
       </Button>
       <Button
         onClick={() => onPageChange(totalPages)}
         disabled={currentPage === totalPages}
-        className="cursor-pointer"
+        className="cursor-pointer bg-orange-500 hover:bg-orange-600"
       >
         {">>"}
       </Button>

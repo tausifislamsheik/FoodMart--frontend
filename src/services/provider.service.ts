@@ -1,6 +1,6 @@
-const NEXT_PUBLIC_API_URL = process.env.NEXT_PUBLIC_BACKEND_URL!;
+const BACKEND_URL = process.env.BACKEND_URL!;
 
-export interface ProviderProfileData {
+interface ProviderProfileData {
   id?: string;
   restaurantName: string;
   address: string;
@@ -11,7 +11,7 @@ export interface ProviderProfileData {
 export const providerService = {
   getAllProviders: async () => {
     try {
-      const res = await fetch(`${NEXT_PUBLIC_API_URL}/api/providers`, {
+      const res = await fetch(` /api/providers`, {
         cache: "no-store",
         credentials: "include",
       });
@@ -27,7 +27,7 @@ export const providerService = {
 
   getProviderById: async (id: string) => {
     try {
-      const res = await fetch(`${NEXT_PUBLIC_API_URL}/api/providers/${id}`, {
+      const res = await fetch(` /api/providers/${id}`, {
         credentials: "include",
       });
       const data = await res.json();
@@ -40,11 +40,14 @@ export const providerService = {
     }
   },
 
+
   createProviderProfile: async (payload: ProviderProfileData) => {
     try {
-      const res = await fetch(`${NEXT_PUBLIC_API_URL}/api/providers/profile`, {
+      const res = await fetch(` /api/providers/profile`, {
         method: "POST",
-        headers: { "Content-Type": "application/json" },
+        headers: {
+          "Content-Type": "application/json",
+        },
         body: JSON.stringify(payload),
         credentials: "include",
       });
@@ -64,7 +67,7 @@ export const providerService = {
     payload: Partial<ProviderProfileData>,
   ) => {
     try {
-      const res = await fetch(`${NEXT_PUBLIC_API_URL}/api/providers/${id}`, {
+      const res = await fetch(` /api/providers/${id}`, {
         method: "PATCH",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(payload),
@@ -83,7 +86,7 @@ export const providerService = {
 
   deleteProviderProfile: async (id: string) => {
     try {
-      const res = await fetch(`${NEXT_PUBLIC_API_URL}/api/providers/${id}`, {
+      const res = await fetch(` /api/providers/${id}`, {
         method: "DELETE",
         credentials: "include",
       });
