@@ -95,3 +95,16 @@ The application is built using **Next.js (App Router)** on the frontend and **No
 ## 🔄 Order Status Lifecycle
 
 PLACED → PREPARING → READY → DELIVERED
+(or CANCELLED)
+
+
+---
+
+## 🚀 Future Improvements
+
+- Online payment integration  
+- Real-time order updates (WebSocket)  
+- Email notifications  
+- Admin analytics dashboard  
+- Advanced search & filtering  
+- Rating moderation system  
