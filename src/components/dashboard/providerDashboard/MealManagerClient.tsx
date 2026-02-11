@@ -85,6 +85,18 @@ const MealManagerClient = ({ userId }: Props) => {
   const handleSave = async () => {
     try {
       setSaving(true);
+      
+      if (!form.name || !form.description || !form.price || !form.categoryId) {
+        toast.error("Please fill in all required fields");
+        setSaving(false);
+        return;
+      }
+
+      if (form.price <= 0) {
+        toast.error("Price must be greater than 0");
+        setSaving(false);
+        return;
+      }
 
       let imageUrl = form.image;
       if (imageFile) imageUrl = await uploadToImgbb(imageFile);

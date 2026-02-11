@@ -1,9 +1,8 @@
 import { createAuthClient } from "better-auth/react";
 
 export const authClient = createAuthClient({
-  // baseURL: typeof window !== "undefined" ? window.location.origin : "",
-  // fetchOptions: {
-  //   credentials: "include",
-  // },
-  baseURL:"https://foodmart-frontend.vercel.app/api/auth" 
+  baseURL:
+    typeof window !== "undefined"
+      ? window.location.origin + "/api/auth"
+      : process.env.NEXT_PUBLIC_FRONTEND_URL + "/api/auth",
 });

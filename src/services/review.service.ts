@@ -1,4 +1,4 @@
-const BACKEND_URL = process.env.BACKEND_URL!;
+const BACKEND_URL = typeof window !== "undefined" ? "" : process.env.BACKEND_URL!;
 
 export interface ReviewData {
   id?: string;
@@ -9,7 +9,7 @@ export interface ReviewData {
 
 export const reviewService = {
   getAllReviews: async () => {
-    const res = await fetch(` /api/reviews`, {
+    const res = await fetch(`${BACKEND_URL}/api/reviews`, {
       cache: "no-store",
       credentials: "include",
     });
@@ -17,7 +17,7 @@ export const reviewService = {
   },
 
   getReviewById: async (id: string) => {
-    const res = await fetch(` /api/reviews/${id}`, {
+    const res = await fetch(`${BACKEND_URL}/api/reviews/${id}`, {
       cache: "no-store",
       credentials: "include",
     });
@@ -25,7 +25,7 @@ export const reviewService = {
   },
 
   createReview: async (payload: ReviewData) => {
-    const res = await fetch(` /api/reviews`, {
+    const res = await fetch(`${BACKEND_URL}/api/reviews`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -37,7 +37,7 @@ export const reviewService = {
   },
 
   updateReview: async (id: string, payload: Partial<ReviewData>) => {
-    const res = await fetch(` /api/reviews/${id}`, {
+    const res = await fetch(`${BACKEND_URL}/api/reviews/${id}`, {
       method: "PUT",
       headers: {
         "Content-Type": "application/json",
@@ -49,7 +49,7 @@ export const reviewService = {
   },
 
   deleteReview: async (id: string) => {
-    const res = await fetch(` /api/reviews/${id}`, {
+    const res = await fetch(`${BACKEND_URL}/api/reviews/${id}`, {
       method: "DELETE",
       credentials: "include",
     });

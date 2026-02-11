@@ -1,4 +1,4 @@
-const BACKEND_URL = process.env.BACKEND_URL!;
+const BACKEND_URL = typeof window !== "undefined" ? "" : process.env.BACKEND_URL!;
 
 export interface CartItemPayload {
   mealId: string;
@@ -11,7 +11,7 @@ export interface UpdateCartItemPayload {
 
 export const cartService = {
   addToCart: async (payload: CartItemPayload) => {
-    const res = await fetch(` /api/carts`, {
+    const res = await fetch(`${BACKEND_URL}/api/carts`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -24,7 +24,7 @@ export const cartService = {
   },
 
   getCartItems: async () => {
-    const res = await fetch(` /api/carts`, {
+    const res = await fetch(`${BACKEND_URL}/api/carts`, {
       cache: "no-store",
       credentials: "include",
     });
@@ -33,7 +33,7 @@ export const cartService = {
   },
 
   getCartItemById: async (id: string) => {
-    const res = await fetch(` /api/carts/${id}`, {
+    const res = await fetch(`${BACKEND_URL}/api/carts/${id}`, {
       cache: "no-store",
       credentials: "include",
     });
@@ -42,7 +42,7 @@ export const cartService = {
   },
 
   updateCartItem: async (id: string, payload: UpdateCartItemPayload) => {
-    const res = await fetch(` /api/carts/${id}`, {
+    const res = await fetch(`${BACKEND_URL}/api/carts/${id}`, {
       method: "PUT",
       headers: {
         "Content-Type": "application/json",
@@ -55,7 +55,7 @@ export const cartService = {
   },
 
   deleteCartItem: async (id: string) => {
-    const res = await fetch(` /api/carts/${id}`, {
+    const res = await fetch(`${BACKEND_URL}/api/carts/${id}`, {
       method: "DELETE",
       credentials: "include",
     });

@@ -1,4 +1,4 @@
-const BACKEND_URL = process.env.BACKEND_URL!;
+const BACKEND_URL = typeof window !== "undefined" ? "" : process.env.BACKEND_URL!;
 
 interface ProviderProfileData {
   id?: string;
@@ -11,7 +11,7 @@ interface ProviderProfileData {
 export const providerService = {
   getAllProviders: async () => {
     try {
-      const res = await fetch(` /api/providers`, {
+      const res = await fetch(`${BACKEND_URL}/api/providers`, {
         cache: "no-store",
         credentials: "include",
       });
@@ -27,7 +27,7 @@ export const providerService = {
 
   getProviderById: async (id: string) => {
     try {
-      const res = await fetch(` /api/providers/${id}`, {
+      const res = await fetch(`${BACKEND_URL}/api/providers/${id}`, {
         credentials: "include",
       });
       const data = await res.json();
@@ -43,7 +43,7 @@ export const providerService = {
 
   createProviderProfile: async (payload: ProviderProfileData) => {
     try {
-      const res = await fetch(` /api/providers/profile`, {
+      const res = await fetch(`${BACKEND_URL}/api/providers/profile`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -67,7 +67,7 @@ export const providerService = {
     payload: Partial<ProviderProfileData>,
   ) => {
     try {
-      const res = await fetch(` /api/providers/${id}`, {
+      const res = await fetch(`${BACKEND_URL}/api/providers/${id}`, {
         method: "PATCH",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(payload),
@@ -86,7 +86,7 @@ export const providerService = {
 
   deleteProviderProfile: async (id: string) => {
     try {
-      const res = await fetch(` /api/providers/${id}`, {
+      const res = await fetch(`${BACKEND_URL}/api/providers/${id}`, {
         method: "DELETE",
         credentials: "include",
       });

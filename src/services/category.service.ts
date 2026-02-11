@@ -1,4 +1,4 @@
-const BACKEND_URL = process.env.BACKEND_URL!;
+const BACKEND_URL = typeof window !== "undefined" ? "" : process.env.BACKEND_URL!;
 
 export interface CategoryData {
   id?: string;
@@ -9,7 +9,7 @@ export interface CategoryData {
 export const categoryService = {
   getAllCategories: async () => {
     try {
-      const res = await fetch(` /api/categories`, {
+      const res = await fetch(`${BACKEND_URL}/api/categories`, {
         cache: "no-store",
         credentials: "include",
       });
@@ -24,7 +24,7 @@ export const categoryService = {
 
   getCategoryById: async (id: string) => {
     try {
-      const res = await fetch(` /api/categories/${id}`, {
+      const res = await fetch(`${BACKEND_URL}/api/categories/${id}`, {
         credentials: "include",
       });
       const data = await res.json();
@@ -38,7 +38,7 @@ export const categoryService = {
 
   createCategory: async (categoryData: CategoryData) => {
     try {
-      const res = await fetch(` /api/categories`, {
+      const res = await fetch(`${BACKEND_URL}/api/categories`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(categoryData),
@@ -55,7 +55,7 @@ export const categoryService = {
 
   updateCategory: async (id: string, categoryData: CategoryData) => {
     try {
-      const res = await fetch(` /api/categories/${id}`, {
+      const res = await fetch(`${BACKEND_URL}/api/categories/${id}`, {
         method: "PUT",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(categoryData),
@@ -72,7 +72,7 @@ export const categoryService = {
 
   deleteCategory: async (id: string) => {
     try {
-      const res = await fetch(` /api/categories/${id}`, {
+      const res = await fetch(`${BACKEND_URL}/api/categories/${id}`, {
         method: "DELETE",
         credentials: "include",
       });
